@@ -41,7 +41,7 @@ Welcome to the **Orders Prediction App**, a Streamlit-based machine learning web
 
 | Home Page                     | Predict Orders                      | User Dashboard                          | Admin Panel                     |
 | ----------------------------- | ----------------------------------- | --------------------------------------- | ------------------------------- |
-| ![home](screenshots/home.png) | ![predict](screenshots/predict.png) | ![dashboard](screenshots/dashboard.png) | ![admin](screenshots/admin.png) |
+| ![home]("D:\sem 8\IIT Guvahati\web application\Home.png") | ![predict]("D:\sem 8\IIT Guvahati\web application\Predic order.png") | ![dashboard]("D:\sem 8\IIT Guvahati\web application\User deshboard.png") | ![admin]("D:\sem 8\IIT Guvahati\web application\Admin Panel.png") |
 
 > *(Include screenshots in a `/screenshots` folder for GitHub preview.)*
 
