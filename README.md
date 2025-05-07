@@ -41,7 +41,7 @@ Welcome to the **Orders Prediction App**, a Streamlit-based machine learning web
 
 | Home Page                     | Predict Orders                      | User Dashboard                          | Admin Panel                     |
 | ----------------------------- | ----------------------------------- | --------------------------------------- | ------------------------------- |
-| ![home]() | ![predict]() | ![dashboard]() | ![admin]() |
+| ![home](Home.png) | ![predict](Predic order.png) | ![dashboard](User deshboard.png) | ![admin](Admin Panel.png) |
 
 > *(Include screenshots in a `/screenshots` folder for GitHub preview.)*
 
