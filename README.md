@@ -1,111 +1,142 @@
 
+# 🛒 Orders Prediction App
 
-### 🧠 1. **Import Libraries**
+Welcome to the **Orders Prediction App**, a Streamlit-based machine learning web application designed to help **retail businesses**, **data analysts**, and **enthusiasts** predict the number of orders a store might receive in a given week based on several key factors.
 
-You imported essential libraries:
+## 🚀 Live Demo
 
-* `pandas`, `numpy` – for data handling
-* `seaborn`, `matplotlib` – for visualization
-* `sklearn` and `xgboost` – for ML modeling
-* `joblib` – to save the model
+> \[Insert your Streamlit Cloud or deployed URL here]
 
 ---
 
-### 📥 2. **Load Dataset**
+## 📌 Table of Contents
 
-```python
-df = pd.read_csv('Number_of_orders.csv')
+* [📌 Table of Contents](#-table-of-contents)
+* [📦 Features](#-features)
+* [🖥️ Screenshots](#️-screenshots)
+* [📁 Project Structure](#-project-structure)
+* [🔧 Installation](#-installation)
+* [🧠 Model Overview](#-model-overview)
+* [📊 Database Structure](#-database-structure)
+* [🛠️ Admin Features](#️-admin-features)
+* [👨‍💻 Developer](#-developer)
+* [📃 License](#-license)
+
+---
+
+## 📦 Features
+
+* 🔐 **User Authentication** (Register/Login)
+* 🧮 **ML-powered Order Predictions**
+* 💾 **Save & Download Predictions**
+* 🧠 **Date-based Feature Engineering** (week number, month, etc.)
+* 📊 **User Dashboard** for saved files and preferences
+* 🛠️ **Admin Panel** for data management and user monitoring
+* 📥 **CSV Upload and Download Support**
+* 💌 **Email Preference Management**
+
+---
+
+## 🖥️ Screenshots
+
+| Home Page                     | Predict Orders                      | User Dashboard                          | Admin Panel                     |
+| ----------------------------- | ----------------------------------- | --------------------------------------- | ------------------------------- |
+| ![home](screenshots/home.png) | ![predict](screenshots/predict.png) | ![dashboard](screenshots/dashboard.png) | ![admin](screenshots/admin.png) |
+
+> *(Include screenshots in a `/screenshots` folder for GitHub preview.)*
+
+---
+
+## 📁 Project Structure
+
+```bash
+📦orders-prediction-app/
+│
+├── order_predictor_model.pkl       # Trained ML model
+├── app.py                          # Main Streamlit application
+├── users.db                        # SQLite DB for user data
+├── orders_app.db                   # SQLite DB for prediction logs
+├── requirements.txt                # Python dependencies
+├── README.md                       # Project overview
+└── screenshots/                    # UI preview images
 ```
 
-* Dataset shape: **188,340 rows × 10 columns**
-* Key columns:
+---
 
-  * `Store_Type`, `Location_Type`, `Region_Code` – **categorical**
-  * `Holiday`, `Discount` – binary/string
-  * `#Order` – **target variable**
-  * `Sales` – likely correlated to orders
+## 🔧 Installation
+
+1. **Clone the Repository**
+
+```bash
+git clone https://github.com/yourusername/orders-prediction-app.git
+cd orders-prediction-app
+```
+
+2. **Create Virtual Environment**
+
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+```
+
+3. **Install Dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Run the App**
+
+```bash
+streamlit run app.py
+```
 
 ---
 
-### 📊 3. **Initial Exploration**
+## 🧠 Model Overview
 
-* `.info()` confirms there are **no null values**.
-* All columns are in clean format.
-* You start exploring datatypes and distributions.
+The model used for prediction is a **supervised regression model** (e.g., RandomForest or LightGBM trained offline) stored in `order_predictor_model.pkl`. It uses the following features:
 
----
-
-## 🧱 Next Step: Enhancing the Project
-
-Now let's go **step-by-step** through the **next-level improvements**:
+* `Store_Type`, `Location_Type`, `Region_Code`
+* `Discount`, `Holiday`, `Sales`
+* `year`, `month`, `day`, `week`
 
 ---
 
-## 🧪 1. Advanced Feature Engineering
+## 📊 Database Structure
 
-### ✅ Add:
+### SQLite Databases:
 
-* **Date Features**:
+* **users.db** — Stores user login credentials.
+* **user\_dashboard.db** — Stores user-uploaded CSVs and preferences.
+* **orders\_app.db** — Stores all predictions made via the ML model.
 
-  * `Month`, `Day`, `Weekday` (extracted from `Date`)
-  * `Is_Weekend`
-* **Discount Encoding**:
-
-  * Map `"Yes"` → `1`, `"No"` → `0`
-* **Region Aggregation**:
-
-  * Mean orders by region, store type, etc. as new features
-* **Lag Features** (Optional): If this is time-series-like data per store.
+Each table is created automatically at runtime if it doesn’t exist.
 
 ---
 
-## 📤 2. Batch Predictions from CSV Upload
+## 🛠️ Admin Features
 
-### Feature:
+Accessible from the **Admin Panel**:
 
-* Upload `.csv` with user data
-* Predict `#Order` for each row
-* Allow **CSV download** of predictions
-
----
-
-## 📊 3. Feature Importance: SHAP + LightGBM
-
-* Use `shap` library to explain model predictions visually:
-
-  * SHAP summary plots
-  * SHAP force plots
-* Compare with LightGBM’s built-in feature importance
+* View all registered users
+* Browse and download all prediction logs
+* Monitor user uploads
+* Clear predictions and uploads from the database
 
 ---
 
-## 🌐 4. Deployment Options
+## 👨‍💻 Developer
 
-### ✅ Option A: **Gradio**
-
-Interactive UI with:
-
-* File uploader (CSV)
-* Live prediction on input
-* Visual SHAP output
-
-### ✅ Option B: **FastAPI**
-
-Backend API:
-
-* `/predict` for single row
-* `/batch_predict` for CSV upload
+**👤 Jemin Prajapati**
+📍 Bardoli, Surat, Gujarat, India
+🎓 R.N.G. Patel Institute of Technology
+💼 Intern | Aspiring Data Scientist
+📧 [jeminprajapati30@gmail.com](mailto:jeminprajapati30@gmail.com)
 
 ---
 
-## 📦 Deliverables
+## 📃 License
 
-You’ll receive:
-
-* 🗂️ Zipped project folder
-* 📝 GitHub README with:
-
-  * How to run locally
-  * Sample input format
-  * API or UI guide
+This project is licensed under the MIT License.
 
